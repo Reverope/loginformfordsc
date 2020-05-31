@@ -37,7 +37,7 @@ const privateRoute = require("./routes/privateRoutes");
 app.use("/dsc/user", authRoute);
 app.use("/dsc/posts", privateRoute);
 
-app.get("/getstarted", (req, res) => {
+app.get("/", (req, res) => {
   res.render("index.ejs");
 });
 app.get("/login", (req, res) => {
@@ -50,5 +50,9 @@ app.get("/register", (req, res) => {
 
 // ************************************************************
 // Staring the Server
-app.listen(3000, () => console.log("Server has Started"));
+
+app.listen(process.env.PORT || 3000, function () {
+  console.log("SERVER STARTED");
+});
+
 // ************************************************************
